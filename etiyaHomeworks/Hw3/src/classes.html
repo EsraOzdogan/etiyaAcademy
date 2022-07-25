@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Classes</title>
+</head>
+<body>
+     
+
+    <script>
+         //Nesneye ait temel özellik ve operasyonları yazarız
+        //Oğrenci nesnesinin adı, soyadı özellikleri, ögrenci sınıfında öğrencinin ihtiyaç duyduğu operasyonlars
+
+        //Nesnel programlama da class yapılarında;
+        //Constructor:Sınıf oluştuğunda temel özelliklerin set edilmesi
+        //Field--Öğrencinin adı soyadı, public--sınıf dısı, private: sınıfi ici
+        //Functions
+        //Static members
+
+        
+        function Customer(firstName,lastName){      //nesne--Nesneyi class gibi kullanıyoruz  //constructor
+            this.firstName = firstName; //public
+            this.lastName = lastName;
+
+            var someField = "some value"; //private(var keyword) //Sadece bu nesne içinde kullaniliyor
+
+            this.sendProduct = function (){ //function,operation
+                alert("Product send!");
+            }
+        }
+
+        var engin = new Customer("Engin","Demiroğ");
+        engin.sendProduct();
+        //engin.someField // erisemem
+
+        
+    </script>
+</body>
+</html>

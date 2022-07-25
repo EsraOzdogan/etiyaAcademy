@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Abstract Classes</title>
+</head>
+<body>
+    
+
+    <script>
+       //Tek basina anlami yoktur
+        //Newlenemez
+        //Base sinif görevi
+        //İcerisinde tamamlanmis ve tamamlanmamis operasyonları icerir. Tamamlanmamislari miras alan sinif implemente eder.s
+
+        var Person={
+            name: "None",   //tamamlanmamis
+            email: "None",  //tamamlanmamis
+            sendEmail: function(){
+                alert("Mail send to :" + this.name + "/" + this.email);     //tamamlanmis
+            }
+        }
+
+        function Customer(name,email){
+            this.name = name;             //miras aldıgı sınıfta tamamlanmayanları burada set ediyoruz
+            this.email = email;
+            //other staff
+        }
+
+        function Employee(name,email){
+            this.name = name;
+            this.email = email;
+            //other staff
+        }
+
+        Customer.prototype = Person;   //inherite ettik, inheritance
+        var someCustomer = new Customer("engin","engin@goliq.net");  //customer nesnesi olusturduk
+        someCustomer.sendEmail();
+
+        Employee.prototype = Person;
+        var employee = new Employee("esra","esra@goliq.net")
+        employee.sendEmail();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Array</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        var students = ["Esra Özdoğan", "Engin Demiroğ","Salih Demiroğ"]; //böyle yazım tercih edilir
+        document.getElementById("demo").innerHTML=students;
+
+        var students = new Array("Esra Özdoğan", "Engin Demiroğ","Salih Demiroğ");//string tanımlama da vermez. Ama sayısal tanımlama da verir
+        var students = new Array(5,10,15);// hata vermez
+        var students = new Array(25);// tek elemanlı içinde 25 mi var yoksa 25 elemanlı mı diye hata verir
+        document.getElementById("demo").innerHTML=students;
+
+        document.getElementById("demo").innerHTML=students[1]; //Engin Demiroğ
+        students[1]= "Ulaş Demiroğ" //set
+        document.getElementById("demo").innerHTML=students[1]; //Ulaş Demiroğ
+
+
+        //Js dizisinde sadece aynı tip değil farklı tipte de veriler tutulabilir
+
+        var students = ["Esra Özdoğan", "Engin Demiroğ","Salih Demiroğ",25]; 
+        document.getElementById("demo").innerHTML=students[3]; //25
+
+        //diziye yeni eleman ekleme-push
+        students.push("Ahmet Sait Duran")
+        document.getElementById("demo").innerHTML=students;
+        student[4] = "Derin Demiroğ" //4. indeks yoktu bilmemiz lazım son indeksi
+        //student[students.length] = "Derin Demiroğ"
+        document.getElementById("demo").innerHTML=students;
+    </script>
+</body>
+
+</html>

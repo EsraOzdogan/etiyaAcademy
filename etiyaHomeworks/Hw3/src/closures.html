@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Closures</title>
+</head>
+<body>
+    <input value="Add" type="button" onclick="alert(add())">
+    <input value="SomeOtherFunction" type="button"  onclick="alert(someOtherFunction())">
+    
+
+    <script>
+
+        // var counter = 0; //global değişken--Ama bu değere her yerden erişil. Hem bu sayfa hemde diğer js dosyaları
+
+        // function add() {
+        //     //var counter = 0;
+        //     counter += 1;
+        //     return counter;
+        // }
+
+
+        // function someOtherFunction(){
+        //     counter += 10;     //counter yukarıdaki counter ile karıştı ve ona göre değer aldı
+        // }
+
+        //counter değişkeninin sadece add için çalışması ve add için global davranması gerekir. Closures yazıyoruz
+
+        //self-invoke
+        var add = (function () {
+            var counter = 0;  //Bir kere oluşur,bir kere çalışır
+            return function(){       //Her seferinde çalışır
+                return counter += 1;
+            }
+        })();
+
+       
+
+    </script>
+</body>
+</html>

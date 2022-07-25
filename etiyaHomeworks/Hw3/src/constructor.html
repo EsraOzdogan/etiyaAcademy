@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Construcotr</title>
+</head>
+<body>
+    
+
+    <script>
+       //This in a function inside an object
+        var student = {
+            firstName: "Esra",
+            lastName: "Özdoğan",
+            fullName: function(){
+                return this.firstName + " " + this.lastName;  //nesne içerisinde fonksiyon içindeki this keywordü nesnenin kendisidir.Yain nesneye işaret eder. Yani student'ın firstName'i
+            }
+        }
+
+        alert(student.fullName());
+
+
+        //Object constructor(Nesne yapılandırıcı)--Sabit değerler atayarak değil direkt nesnenin değerleri ile üretilebilir
+        //Jsde her şey nesne
+        //Fonksiyonu nesne gibi kullanabiliriz
+        //Obje fonksiyon olarak tanımlanmış ise constructor olur
+        //this is an object
+
+        function Customer(first,last,city,country,age){   //kullanıcıdan alınan parametreler
+            this.first = first;  //this.first -- o an oluşan Customerın propertysi,  first--parametre
+            this.last = last;
+            this.city = city;
+            this.age = age;
+            this.country = country;
+        }
+
+
+        var someCustomer = new Customer("Esra","Özdoğan","İstanbul","Turkey",23) //Customer türünde nesne oluşur
+
+        alert(someCustomer.first) //this.first'teki first--yani nesnenin özelliği olan first arka tarafta oluşur
+
+        alert(someCustomer.country)
+
+    </script>
+</body>
+</html>

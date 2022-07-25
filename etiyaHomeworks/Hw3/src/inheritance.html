@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Inheritance</title>
+</head>
+
+<body>
+    <script>
+        //Temel nesneler olusturup ortak özellik ve operasyonların temel nesnede tutulması. 
+        //Türeyen nesnede ise sadece o nesneye ait özelliklerin tutulması. Ve temel nesneden miras alıp bu nesnenin temel nesne özellik ve operasyonlarını çalıştırması
+           function Person(firstName, lastName) {   //Kişi constructor nesnesi
+              this.firstName = firstName;
+              this.lastName = lastName;
+          }
+
+          function Student(favoriteCourse) {           //Öğrenci, ileride müsteri vs de olabilir
+              this.favoriteCourse = favoriteCourse;
+          }
+
+          Student.prototype = new Person("Engin", "Demiroğ");  //inheritance. Öğrencide de ad,soyad var
+          var engin = new Student("Programming");
+
+          alert(engin.firstName + " " + engin.lastName + " " + engin.favoriteCourse);   //Student'i Person'dan inheritance aldıgımız icin ögrenci firstName ve lastName'e erisebiliyorum
+
+
+    </script>
+</body>
+
+</html>

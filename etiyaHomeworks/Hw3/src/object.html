@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Object</title>
+<!-- <script type = "text/javascript" src="app.js"></script> -->
+
+</head>
+
+<body>
+    <label id="objectDemo"></label>
+
+    <script>
+        var student = {firstName : "Esra", lastName : "Özdoğan", city : "İstanbul"}
+        document.getElementById("objectDemo").innerHTML=student.firstName; //get
+
+        student.firstName = "Salih" //set
+        document.getElementById("objectDemo").innerHTML=student.firstName; //get
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Functions</title>
+</head>
+<body>
+
+    <script>
+       //Fonksiyon, bir nesne gibi ve bir nesne yapıcısı, bir soyut sınıf gibi de davranabilir. Bu nedenle C#, Java gibi nesne yönelimli dilleri de teşlil eder
+        //Fonksiyonlar belirli biri şi yapmak için kullanılır .Bir değer döndürebilir
+        //Parametre de herhangi bir veri tipi belirtilmez.Tip kontrolü de yapılmaz
+
+        //Function Signature
+
+        //with return
+        function functionName(paremter1,parameter2){
+            //Do something
+            return parameter1 * parameter2        
+        }
+        alert(functionName(2,3));  //alert(6)
+
+
+        //function without return
+        //fonksiyonda parametre alıp kullanmak zoruunda değiliz. 
+        //fonksiyon çağırılırken parametre göndermek zorunda da değiliz
+        function functionWithOutReturn(parameter1,parameter2){    
+            alert("This is a function without 'return' statement")
+        }
+
+        functionWithOutReturn();
+        functionWithOutReturn(2);
+        functionWithOutReturn(2,3);
+        functionWithOutReturn(2,3,4);
+
+        //Jsde aynı isimde fonsiyon adı yazılırsa hata vermez. Değerini değiştirerek onun üzerinden işlem yaparak devam eder.
+
+        //Parameter Defaults
+        //kullanıcı 'i gönderip y'yi göndermeyebilir. bu durumu yakalamak için kontrol edip bir değer atıyoruz
+        function functionName2(x,y) {
+            if (y === undefined) {
+                y= 0;
+            }
+        }
+
+        functionName2(3);  //x=3, y=0
+        functionName2(3,4);  //x=3, y=4
+
+
+        //The Arguments Object
+        x= findMax(1,123,500,115,44,88); //findMax-array(obje arrayi)
+
+        function findMax() {
+            var i, max = 0;
+            for ( i = 0; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i]
+                }        
+            }
+            return max;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Loops</title>
+</head>
+
+<body>
+
+    <script>
+       //For, While, Do-While
+
+        //For
+
+        for (let i = 0; i <= 10; i++) {
+            alert(i);
+            
+        }
+
+        //for loops with break
+        for (let i = 0; i <= 10; i++) {
+            if (i==5) {
+                break; 
+                //continue
+            }
+            alert(i);    //0,1,2,3,4
+        }
+
+        //for loops with continue
+
+        for (let i = 0; i <= 10; i++) {
+            if (i==5) {
+                //break;         
+                continue;
+            }
+            alert(i);    //0,1,2,3,4,6,7,8,9,10
+        }
+
+
+
+        //While
+        var number = 1;
+        while (number < 10) {
+            alert(number);
+            number = number+1;
+        }
+
+        //Do-while
+        var age = prompt("your age?");
+        var result = "";
+        do {
+            result += age;              //do--şart sağlansada sağlanmasa da çalışır
+            result += "-";
+            age--;
+        } while (age >0)
+        alert(result);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML DOM</title>
+</head>
+    <style>
+        .intro1{
+            background-color: red;
+        }
+        .intro2{
+            background-color: violet;
+        }
+        .intro3{
+            background-color: blue;
+        }
+    </style>
+<body>
+    <p class="intro1" id="intro1">My first paragraph...</p>
+    <p class="intro2" id="intro2">My second paragraph...</p>
+    <p class="intro3" id="intro3">My third paragraph...</p>
+
+    <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+        <li>List item 5</li>
+    </ul>
+
+    <p id="message"></p>
+    <input type="text" name="customerName" value="Engin Demiroğ">
+
+    <h1>Try it</h1>
+    <h1 id="tryIt">Try it</h1>
+
+    <p id="nodes">
+        Node Value
+    </p>
+
+    <div class="div1">
+        <p id="p1">This is p1</p>
+        <!-- buraya ekledik -->
+        <p id="p2">This is p2</p>
+    </div>
+
+    <script type="text/javascript">
+        //Js Html Dom
+
+        //Önemliler
+        //getElementById
+        //getElementsByTagName
+        //getElementsByClassName
+        //querySelectorAll
+        //getElementsByName
+        //addEventListener
+        //removeEventListener
+        //Working With Nodes
+
+
+        //getElementById
+        alert("Reading with getElementById")
+        var firstParagraph = document.getElementById("intro1");
+        var message = document.getElementById("message");
+        message.innerHTML = "Message: "+firstParagraph.innerHTML;
+
+
+        //getElementsByTagName  --Elements Array döner
+        var allUnorderedLists = document.getElementsByTagName("ul");
+        var unorderedList = allUnorderedLists[0];
+        var allListItems = unorderedList.getElementsByTagName("li");
+        for (let i = 0; i < allListItems.length; i++) {
+            alert(allListItems[i].firstChild.data);
+        }
+
+
+        //getElementsByClassName
+         var allItemsWithClassName = document.getElementsByClassName("intro1"); //array şeklinde gelir(elements) hangisine erişmek istiorsan onun indisini yaz. Burda 1 tane
+        alert(allItemsWithClassName[0].innerHTML);
+
+
+        //querySelectorAll
+        var allItemsWithSelector = document.querySelectorAll("p.intro2");  //intro2'yi kullanna tüm p'ler
+        alert(allItemsWithSelector[0].innerHTML);
+
+
+        //getElementsByName
+        var names = document.getElementsByName("customerName");
+        alert(names[0].value);  //Engin Demiroğ
+
+
+        //addEventListener 
+        document.getElementById("tryIt").addEventListener("click",changeColor);
+        function changeColor(){
+            document.getElementById("intro1").style.color="blue";
+        }
+
+        //removeEventListener
+         document.getElementById("tryIt").removeEventListener("click",changeColor); //artık tıklayınca mavi olmayacak yazı rengi
+
+        //Node
+
+         var nodeText = document.getElementById("nodes").childNodes[0].nodeValue; //bir tane node var o nedenle childNodes[0]
+         alert(nodeText)
+
+
+        var heading = documet.createElement("h2"); //h2 türet
+        var node = document.createTextNode("Hello Javascript");
+        //h2 elementin içine node eklemek için
+        heading.appendChild(node);
+
+        var div1 = document.getElementById("div1");
+        var p2 = document.getElementById("p2")
+
+        div1.insertBefore(heading,p2)
+
+        alert("Removing P2");
+        div1.removeChild(p2)
+
+
+        //silmek yerine değiştirilebilir
+        //replace
+        alert("Replacing");
+        var heading2 = documet.createElement("h1"); //h1 türet
+        var node2 = document.createTextNode("This is a replacement");
+        //h2 elementin içine node eklemek için
+        heading2.appendChild(node2);
+
+        var p1 = document.getElementById("p1")
+        div1.replaceChild(heading2,p1)
+
+    </script>
+</body>
+</html>

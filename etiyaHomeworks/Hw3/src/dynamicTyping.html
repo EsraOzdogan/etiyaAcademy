@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dynmaic Typing</title>
+</head>
+<body>
+
+    <script>
+        var customer = {
+            id:1,
+            contactName : "Engin Demiroğ"
+        }
+
+        customer.country = "Turkey"; //başka bir özellik tanımlama
+
+        customer.sayHello = function(){    //cutomer sınıfına method tanımı
+            alert( "Hello " + this.contactName) //this--fonksiyonu barındıran nesne ynai customer
+            alert( "Hello " + this.country)
+        }
+        customer.sayHello()    
+       
+    </script>
+</body>
+
+</html>
