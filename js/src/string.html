@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        var student = "Esra Özdoğan";
+        console.log(student)
+
+        var student = "Esra Özdoğan"; //string
+        var value = 10; //number
+        var student2 = student; //string
+        var isItTrue = true //boolean
+        document.getElementById("demo").innerHTML=student;
+
+        var student = "Esra Özdoğan"; //string
+        student = student.substring(1,4)  //js string functions
+        document.getElementById("demo").innerHTML=student;
+
+
+        //not type safe
+        var value = 10; //number
+        value = "Salih Demiroğ"
+        document.getElementById("demo").innerHTML=value;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prototyping</title>
+</head>
+
+<body>
+
+
+    <script>
+        //Müşteri nesnesi-constructor bloğu ile parametre ile aldığı değerler gönderilip nesnedeki her özelliğe set ediliyor
+        function Customer(first,last,city,country,age){
+            this.first = first;
+            this.last = last;
+            this.city = city;
+            this.age = age;
+            this.country = country;
+        }
+
+        var someCustomer = new Customer("Esra","Özdoğan","İstanbul","Turkey",23);
+
+        Customer.prototype.eMail = "esra@gmail.com";   //eMail özelliği eklendi ve değer set edildi
+        Customer.prototype.fullName = function(){     //fonksiyon olarak değer set edilme
+            return this.first + " " + this.last;
+        };
+
+        alert(someCustomer.city);
+        alert(someCustomer.eMail);
+        alert(someCustomer.fullName());
+
+    </script>
+</body>
+
+</html>

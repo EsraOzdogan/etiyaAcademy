@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>
+    <title>Validation</title>
+</head>
+<body>
+    <p>Enter a number</p>
+    <!-- <input id="numberBox"> -->
+    <!-- <input id="numberBox" type="text" pattern="[A-Za-z]{3}"> -->
+    <!-- <input id="numberBox" type="text" maxlength="5"> -->
+    <!-- <input id="numberBox" type="text" value="abc" readonly> -->
+    
+    <!-- novalidate--form tagı için kullanılır 
+    <form novalidate>  --form poste edildiğinde hiçbir şekilde validate uygulama
+
+    </form>-->
+
+    <input id="numberBox" type="number" min="10" max="100">
+    <button onclick="validate()">Send</button>
+    <p id="demo"></p>
+  
+    <script>
+        //Disabled, Readonly, Max, Min, Pattern(e.g. [A-Za-z]{3}) --numerik olmayan 3 karakter, Required, Type--inputun tipini verir, Maxlength, Novalidate**validation yapılmak istenmediğinde
+        //novalidate--form tagı için kullanılır
+        
+        function validate(){
+            var numberEntered = document.getElementById("numberBox");
+            if(numberEntered.checkValidity() == false){  //invalid
+                document.getElementById("demo").innerHTML= numberEntered.validationMessage;
+            }
+            else{  //valid
+                document.getElementById("demo").innerHTML = "Input OK";
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaces</title>
+</head>
+
+<body>
+
+    <script>
+        //Bagımlılıgın ortadan kalkması icin önemli
+        //Tek basina newlenemez
+        function sendEmail(personInterface) {    //Müsteri, Personele vs email gönderir, Sonra Çalısan nesnesi ortaya cikarsa oan da implemente edebiliriz
+           var to = personInterface.eMail;       //private
+           var name = personInterface.name;       //private
+
+           var send = function(){
+               alert("Mail sent to: " + name + "/" + to);
+           }
+           send();
+        }
+        function Customer(name,eMail){       //constructor, concrete(somut) sınıf
+           this.name=name;
+           this.eMail=eMail;
+           //other staff
+        }
+        function Employee(name,eMail,sadad){     //constructor, concrete(somut) sınıf
+           this.name=name;
+           this.eMail=eMail;
+           this.sadad =sadad  //başka ozellikler de olabilir
+           //other staff
+        }
+        var someCustomer=new Customer("engin","engin@goliq.net");
+        var someEmployee=new Employee("salih","salih@goliq.net");
+        sendEmail(someCustomer);
+        sendEmail(someEmployee);
+    </script>
+</body>
+
+</html>
