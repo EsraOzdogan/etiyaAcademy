@@ -1,0 +1,15 @@
+.footer{
+  background-color: #134361;
+  text-align: center;
+}
+
+.footer .row {
+  justify-content: space-around;
+  padding: 20px 0 50px 0;
+  color: #bac1c7;
+  font-size: 1.6rem;
+}
+
+a:hover{
+  color: #FFFFFF;
+}
