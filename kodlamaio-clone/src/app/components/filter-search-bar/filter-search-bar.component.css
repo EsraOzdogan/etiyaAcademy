@@ -1,0 +1,52 @@
+.row {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  padding: 50px 0;
+}
+
+form input {
+  width: 300px;
+  height: 45px;
+  padding: 0 15px;
+  border: 1px solid #99999950;
+  font-size: 1.6rem;
+  border-radius: 10px 0px 0px 10px;
+}
+
+form input:focus {
+  border: 1.5px solid #3C64A9;
+}
+
+form button {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #99999950;
+  font-size: 1.8rem;
+  border-radius: 0px 10px 10px 0px;
+}
+
+form button:hover {
+  background-color: #99999950;
+  border: 1px solid #999999;
+}
+
+.select-bar .column{
+background-color: #FFFFFF;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+
+label{
+  font-size: 1.8rem;
+  color: #989898;
+}
+.search-bar select{
+  width: 100px;
+  height: 45px;
+  border: none;
+  color: #134361;
+  font-size: 1.8rem;
+}
