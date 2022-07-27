@@ -15,6 +15,10 @@ export class AppComponent implements OnInit{
 
   counter:number = 0;
 
+  // links:string[]=["Home","Add Product","Product List" ]
+  links:any[]=[{label:"Home", url:"/home"},{label:"Add Product", url:"/add-product"},{label:"Product List", url:"/product-list"}, ]
+
+
   // increase(){
   //   this.counter ++;  //this.counter AppComponent sınıfındaki counter
   // }
