@@ -1,6 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap%27');
 
-*{
-  margin: 0 ;
-  padding: 0;
+* {
+    box-sizing: border-box;
+    outline: none;
 }
+
+html,
+body,
+ul,
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Raleway',
+        sans-serif;
+        background-color: #fafafa;
+}
+
+html {
+    font-size: 10px;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* @Container */
+.container {
+  margin: 0 auto;
+}
+
+/* @Columns */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1.6rem;
+    margin-right: -1.6rem;
+}
+
+.column {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+}
+
+
+/*
+  ##Cihaz = Masaüstü
+  ##Ekran = 1281px 'den yüksek çözünürlükler için
+*/
+@media (min-width: 1281px) {
+  .container {
+      max-width: 1260px;
+  }
+}
+
+
+/*
+##Cihaz = Laptoplar, Masaüstü
+##Ekran = 1025px to 1280px Arası Ekranlar
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .container {
+      max-width: 1000px;
+  }
+}
+
+
+/*
+##Cihaz = Tabletler, Ipad (portrait/dikey modda)
+##Ekran = 768px to 1024px Arası Ekranlar
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+      padding-left: 50px;
+      padding-right: 50px;
+  }}
+
+
+/*
+##Cihaz = Düşük Çözünürlüklü Tablet ve Mobil Ekranlar (Landscape / Yatay Modda)
+##Ekran = 481px to 767px Arası Ekranlar
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  .container {
+      padding-left: 50px;
+      padding-right: 50px;
+  }
+}
+
+
+/*
+##Cihaz = En Çok Tercih Edilen Mobil Boyutlar (Portrait/Dikey Modda)
+##Ekran = 320px to 479px Arası Ekranlar
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .container {
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+}
+
+/* footer{
+  position:relative;
+} */
