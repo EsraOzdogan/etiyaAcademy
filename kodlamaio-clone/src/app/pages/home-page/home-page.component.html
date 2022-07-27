@@ -1,25 +1,8 @@
 <app-filter-search-bar></app-filter-search-bar>
 <div class="container">
   <div class="row">
-    <div class="column">
-      <app-lesson-card></app-lesson-card>
-    </div>
-    <div class="column">
-      <app-lesson-card></app-lesson-card>
-    </div>
-    <div class="column">
-      <app-lesson-card></app-lesson-card>
-    </div>
-  </div>
-  <div class="row">
-    <div class="column">
-      <app-lesson-card></app-lesson-card>
-    </div>
-    <div class="column">
-      <app-lesson-card></app-lesson-card>
-    </div>
-    <div class="column">
-      <app-lesson-card></app-lesson-card>
+    <div class="column" *ngFor="let l of lessonList">
+      <app-lesson-card [lesson]="l"></app-lesson-card>
     </div>
   </div>
 </div>
