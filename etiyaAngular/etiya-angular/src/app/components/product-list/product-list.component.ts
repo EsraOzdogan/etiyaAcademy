@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Product  from 'src/app/models/product';
+import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
   selector: 'etiya-product-list',
@@ -15,7 +16,10 @@ export class ProductListComponent implements OnInit {
   cartItems: any[]=[]
   //httpClient!: HttpClient --1
 
-  constructor(private httpClient: HttpClient) {  //Dependency Injection //Dependency Injection ile Angular otomatik olarak enjecte eder. //private vermezsen sadece bu constructorda kullanıyoruz, private der isek ve sadece parametre olarak alırsak bu sayfada this ile belirtiyoruz
+  constructor(
+    //private httpClient: HttpClient
+    private productService: ProductService
+    ) {  //Dependency Injection //Dependency Injection ile Angular otomatik olarak enjecte eder. //private vermezsen sadece bu constructorda kullanıyoruz, private der isek ve sadece parametre olarak alırsak bu sayfada this ile belirtiyoruz
     //this.httpClient = httpClient; ---2
 
     // this.productList.push(new ProductClass())
@@ -24,6 +28,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     //this.fillProductData()
     this.getProducts()
+
   }
 
   // fillProductData(){
@@ -109,28 +114,34 @@ export class ProductListComponent implements OnInit {
   //   }
   // }
 
-  addToCart(productName:string){
-    console.log(productName)
-    let itemToFind = this.cartItems.find(c =>c ==productName);
+  addToCart(product:Product){
+    console.log(product.name)
+    let itemToFind = this.cartItems.find(c =>c ==product.name);
     if(!itemToFind){
-      this.cartItems.push(productName)
+      this.cartItems.push(product.name)
     }
   }
 
 
-  getProducts(){
-    //*   <>  Generic
-    this.httpClient.get<Product[]>("http://localhost:3000/products")  //get request'i hazır
-    .subscribe(response=>{    // response' u subscribe eder ve gözlemler
-      console.log(response);
-      // console.log(response[0]);    //response'un gelen datanın tipini bilmiyoruz bu nedenle get<Product> yaptık
-      // [
-      //   {},
-      //   {}
-      // ]
-      console.log(response[0].name);
-      this.productList=response;
+  // getProducts(){
+  //   //*   <>  Generic
+  //   this.httpClient.get<Product[]>("http://localhost:3000/products")  //get request'i hazır
+  //   .subscribe(response=>{    // response' u subscribe eder ve gözlemler
+  //     console.log(response);
+  //     // console.log(response[0]);    //response'un gelen datanın tipini bilmiyoruz bu nedenle get<Product> yaptık
+  //     // [
+  //     //   {},
+  //     //   {}
+  //     // ]
+  //     console.log(response[0].name);
+  //     this.productList=response;
 
+  //   })
+  // }
+
+  getProducts(){
+    this.productService.getList().subscribe(data=>{
+      this.productList = data
     })
   }
 
