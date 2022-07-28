@@ -32,6 +32,10 @@ export class AddProductComponent implements OnInit {
     }
   }
 
+  // onEmailChange(event: any) {
+  //   console.log(event);
+  // }
+
 
   changeEmail(){
     this.email = "blabla";

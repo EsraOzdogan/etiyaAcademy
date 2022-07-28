@@ -41,8 +41,6 @@ export class AppComponent implements OnInit{
   // }
 
   get Counter(){   //getter
-    return (
-      this.counter.toString() + (this.counter <5 ? 'Çok az' : 'Çok fazla')
-      )
+    return this.counter.toString() + (this.counter <5 ? 'Çok az' : 'Çok fazla')
   }
 }
