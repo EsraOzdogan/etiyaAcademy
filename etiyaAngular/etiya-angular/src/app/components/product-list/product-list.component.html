@@ -40,11 +40,11 @@
 
 
 
-
+<p>Sepetinizde {{cartItems.length}} ürün var</p>
 
 <div class="row">         <!-- .row>.col-4*3 -->
   <div *ngFor="let p of productList" class="col-4 mt-5">
-    <etiya-product-card [product]="p"></etiya-product-card>      <!--product="{{p}}"-->
+    <etiya-product-card [product]="p" (onBtnClick)="addToCart($event)"></etiya-product-card>      <!--product="{{p}}"-->        <!--3-->
   </div>
 
 </div>
