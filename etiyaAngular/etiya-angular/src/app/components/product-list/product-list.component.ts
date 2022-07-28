@@ -16,6 +16,8 @@ export class ProductListComponent implements OnInit {
   cartItems: any[]=[]
   //httpClient!: HttpClient --1
 
+  dataLoaded = false;
+
   constructor(
     //private httpClient: HttpClient
     private productService: ProductService
@@ -27,7 +29,11 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     //this.fillProductData()
-    this.getProducts()
+    setTimeout(()=>{
+      this.getProducts()
+  }, 3000);
+
+
 
   }
 
@@ -141,7 +147,8 @@ export class ProductListComponent implements OnInit {
 
   getProducts(){
     this.productService.getList().subscribe(data=>{
-      this.productList = data
+      this.productList = data;
+      this.dataLoaded = true;
     })
   }
 

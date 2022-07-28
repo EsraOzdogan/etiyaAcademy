@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddProductComponent,
     HomepageComponent,
     NavbarComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
