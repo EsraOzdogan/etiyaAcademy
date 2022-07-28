@@ -10,9 +10,14 @@
 </ul> -->
 
 
-<div class="list-group">
-  <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
-    The current button
-  </button>
-  <button type="button" class="list-group-item list-group-item-action" (click)="getCategoryId(c)"  *ngFor="let c of categoryList">{{c.name}}</button>
+<div class="list-group"  *ngIf="loading==false; else loadingInfo">
+
+  <button *ngFor="let category of categoryList" type="button" (click)="getCategoryId(category)"
+     class="list-group-item list-group-item-action"   >{{category.name}}</button>
 </div>
+
+<ng-template #loadingInfo>
+  <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+</ng-template>

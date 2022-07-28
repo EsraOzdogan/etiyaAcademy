@@ -10,16 +10,20 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class CategoryComponent implements OnInit {
 
   categoryList!:Category[]
+  loading: boolean = true
 
   constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
-    this.getCategory()
+    setTimeout(()=>{
+      this.getCategory()
+    }, 3000);
   }
 
   getCategory(){
     this.categoryService.getList().subscribe(data=>{
       this.categoryList=data
+      this.loading = false;
     })
   }
 
