@@ -13,6 +13,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './components/category/category.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { CustomerDashboardComponent } from './pages/customer-dashboard/customer-dashboard.component';
+import { CustomerDashboardFormComponent } from './pages/customer-dashboard/customer-dashboard-form/customer-dashboard-form/customer-dashboard-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RegisterComponent } from './pages/register/register.component';
     NavbarComponent,
     ProductCardComponent,
     CategoryComponent,
-    RegisterComponent
+    RegisterComponent,
+    CustomerDashboardComponent,
+    CustomerDashboardFormComponent
   ],
   imports: [
     BrowserModule,
