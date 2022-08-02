@@ -29,6 +29,8 @@ export class ProductDashboardFormComponent implements OnInit {
     this.getProductIdFromRoute();
     this.getSupplierList();
     this.getCategoryList();
+
+
   }
 
   createProductForm(): void{
@@ -75,7 +77,6 @@ export class ProductDashboardFormComponent implements OnInit {
 
 
   save(){
-
     if(this.product) this.update();
     else{
       this.add();
