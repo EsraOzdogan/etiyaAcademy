@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,12 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CustomerDashboardComponent } from './pages/customer-dashboard/customer-dashboard.component';
 import { CustomerDashboardFormComponent } from './pages/customer-dashboard/customer-dashboard-form/customer-dashboard-form/customer-dashboard-form.component';
 
+
+import { ToastrModule } from 'ngx-toastr';
+import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
+import { ProductDashboardFormComponent } from './pages/product-dashboard/product-dashboard-form/product-dashboard-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,14 +34,20 @@ import { CustomerDashboardFormComponent } from './pages/customer-dashboard/custo
     CategoryComponent,
     RegisterComponent,
     CustomerDashboardComponent,
-    CustomerDashboardFormComponent
+    CustomerDashboardFormComponent,
+    ProductDashboardComponent,
+    ProductDashboardFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgbModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
