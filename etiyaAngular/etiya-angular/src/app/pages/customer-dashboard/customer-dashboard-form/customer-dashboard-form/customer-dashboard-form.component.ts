@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customers/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-customer-dashboard-form',
@@ -18,7 +19,8 @@ export class CustomerDashboardFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private customerService : CustomerService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -57,25 +59,28 @@ export class CustomerDashboardFormComponent implements OnInit {
     )
   }
 
-
   add() {
     if (!this.customerForm.valid) {
+      this.toastrService.warning('There are missing fields.');
       return;
     }
 
-    let customerToAdd: Customer = { ...this.customerForm.value };
+    let customerToAdd: Customer = { ...this.customerForm.value };         // this.customer :Customer yapmıycaz. local değişken oluşturuyoruz. Tekrar renderlamasın diye tekara fonk çalımasın diye
     this.customerService.add(customerToAdd).subscribe(() => {
+      this.toastrService.success('Customer has been added.');
       this.router.navigate(['dashboard/customer']);
     });
   }
 
   update() {
     if (!this.customerForm.valid) {
+      this.toastrService.warning('There are missing fields.');
       return;
     }
 
     let customerToUpdate: Customer = { id: this.customerToEdit.id, ...this.customerForm.value };
     this.customerService.update(customerToUpdate).subscribe(() => {
+      this.toastrService.success('Customer has been updated.');
       this.router.navigate(['dashboard/customer']);
     });
   }
@@ -85,6 +90,7 @@ export class CustomerDashboardFormComponent implements OnInit {
 
     let customerToDelete: Customer = { id: this.customerToEdit.id, ...this.customerForm.value };
     this.customerService.delete(customerToDelete).subscribe(() => {
+      this.toastrService.success('Customer has been deleted.');
       this.router.navigate(['dashboard/customer']);
     });
   }

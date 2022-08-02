@@ -20,7 +20,8 @@
         <th scope="col">Country</th>
         <th scope="col">Phone</th>
         <th scope="col">Customer Key</th>
-        <th scope="col">Update  Delete</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody class="card-body">
@@ -36,15 +37,17 @@
         <td>{{customer.country}}</td>
         <td>{{customer.phone}}</td>
         <td>{{customer.customerKey}}</td>
-        <td class="d-flex justify-content-center">
-          <button routerLink="edit/{{ customer.id }}" class="btn btn-sm btn-primary shadow-sm">
+        <td>
+          <button routerLink="edit/{{ customer.id }}" class="btn btn-sm btn-warning shadow-sm">
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
-          <button type="button"(click)="deleteCustomer(customer)" class="btn btn-sm btn-danger shadow-sm" style="margin-left:5px;">
+        </td>
+        <td>
+
+          <button type="button"(click)="deleteCustomer(customer)" class="btn btn-sm btn-danger shadow-sm">
             <i class="fa-solid fa-trash"></i>
           </button>
         </td>
-
       </tr>
     </tbody>
   </table>

@@ -12,14 +12,16 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="/add-product" routerLinkActive="active">Add Product</a>  <!--href="add-product-- sayfa yenilenir(önerilmez)"-->  <!--routerLinkActive="text-danger"-->
         </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" routerLink="/dashboard/customer" routerLinkActive="active">Customer Dashboard</a>  <!--href="add-product-- sayfa yenilenir(önerilmez)"-->  <!--routerLinkActive="text-danger"-->
+        <li ngbDropdown class="d-block">
+          <button type="button" class="btn btn-dark" id="dropdownBasic1" ngbDropdownToggle routerLinkActive="active">Dashboard</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem routerLink="/dashboard/customer">Customer</button>
+            <button ngbDropdownItem routerLink="/dashboard/product">Product</button>
+          </div>
         </li>
-
-
-
-
       </ul>
+
+
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>

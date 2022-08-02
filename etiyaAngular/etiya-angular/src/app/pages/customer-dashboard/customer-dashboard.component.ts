@@ -44,7 +44,7 @@ export class CustomerDashboardComponent implements OnInit {
       this.customerService.delete(customer).subscribe()
     }
     setTimeout(() => {
-      location.reload()
+      this.getAll();
     }, 1000);
   }
 }

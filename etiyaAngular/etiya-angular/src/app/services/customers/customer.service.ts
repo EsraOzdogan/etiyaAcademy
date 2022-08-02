@@ -30,7 +30,6 @@ export class CustomerService {
     return this.httpClient.post<Customer>(this.apiControllerUrl,customer)  //2. parametre customer body
   }
 
-
   getById(id: number): Observable<Customer> {
     return this.httpClient.get<Customer>(`${this.apiControllerUrl}/${id}`);
   }

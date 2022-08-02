@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './pages/add-product/add-product.component';
 import { CustomerDashboardFormComponent } from './pages/customer-dashboard/customer-dashboard-form/customer-dashboard-form/customer-dashboard-form.component';
+import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
+import { ProductDashboardFormComponent } from './pages/product-dashboard/product-dashboard-form/product-dashboard-form.component';
 
 const routes: Routes = [
   {path:"", redirectTo: 'homepage', pathMatch:"full"},  /*direkt homepage pathini calistiriyor*/
@@ -19,6 +21,15 @@ const routes: Routes = [
   ...['dashboard/customer/add', 'dashboard/customer/edit/:id'].map(path => ({
     path,
     component: CustomerDashboardFormComponent
+  })),
+
+  {
+    path: 'dashboard/product',
+    component: ProductDashboardComponent
+  },
+  ...['dashboard/product/add', 'dashboard/product/:id'].map(path => ({
+    path,
+    component: ProductDashboardFormComponent
   })),
 
 
