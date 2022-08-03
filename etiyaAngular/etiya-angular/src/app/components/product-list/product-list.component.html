@@ -57,10 +57,10 @@
   </div>
 
   <div aria-label="Basic example" class="row">
-    <div class="mb-3 col-10">
+    <div class="mb-3 col-12">
         <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search">
     </div>
-    <div *ngIf="filterText.length>2" class="alert alert-secondary col-10">
+    <div *ngIf="filterText.length>2" class="alert alert-secondary col-12">
         {{filterText}} aradınız.
     </div>
 </div>
