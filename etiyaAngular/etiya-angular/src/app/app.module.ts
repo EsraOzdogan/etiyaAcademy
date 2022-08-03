@@ -22,6 +22,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { ProductDashboardComponent } from './pages/product-dashboard/product-dashboard.component';
 import { ProductDashboardFormComponent } from './pages/product-dashboard/product-dashboard-form/product-dashboard-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VatPipe } from './pipes/vat/vat.pipe';
+import { SaleDirective } from './directives/sale/sale.directive';
+import { FilterProductPipe } from './pipes/filterProduct/filter-product.pipe';
+import { ClickDirective } from './directives/click/click.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CustomerDashboardComponent,
     CustomerDashboardFormComponent,
     ProductDashboardComponent,
-    ProductDashboardFormComponent
+    ProductDashboardFormComponent,
+    VatPipe,
+    SaleDirective,
+    FilterProductPipe,
+    ClickDirective
   ],
   imports: [
     BrowserModule,

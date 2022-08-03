@@ -55,8 +55,19 @@
   <div *ngIf="productList.length==0" class="alert alert-warning">
     <p>Ürün yok</p>
   </div>
+
+  <div aria-label="Basic example" class="row">
+    <div class="mb-3 col-10">
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Search">
+    </div>
+    <div *ngIf="filterText.length>2" class="alert alert-secondary col-10">
+        {{filterText}} aradınız.
+    </div>
+</div>
+
+
   <div class="row">
-      <div class="col-4" *ngFor="let p of productList">
+      <div class="col-4" *ngFor="let p of productList | filterProduct:filterText">
          <etiya-product-card (onBtnClick)="addToCart($event)" [product]="p"></etiya-product-card>
       </div>
   </div>

@@ -17,6 +17,7 @@ export class ProductListComponent implements OnInit {
   //httpClient!: HttpClient --1
 
   dataLoaded = false;
+  filterText="";
 
   constructor(
     //private httpClient: HttpClient
