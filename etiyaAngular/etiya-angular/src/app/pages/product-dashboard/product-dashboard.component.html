@@ -5,7 +5,7 @@
   </button>
 </div>
 
-<div class="card p-2 rounded-2 shadow-xl">
+<div class="card p-2 rounded-2 shadow-xl;">
   <table class="table table-hover">
     <thead class="card-header">
       <tr class="text-uppercase">
@@ -13,11 +13,11 @@
         <th scope="col">Name</th>
         <th scope="col">supplierId</th>
         <th scope="col">categoryId</th>
-        <th scope="col">quantityPerUnit</th>
-        <th scope="col">unitPrice</th>
-        <th scope="col">unitsInStock</th>
-        <th scope="col">unitsOnOrder</th>
-        <th scope="col">reorderLevel</th>
+        <th scope="col">quantity Per Unit</th>
+        <th scope="col">unit Price</th>
+        <th scope="col">units In Stock</th>
+        <th scope="col">units On Order</th>
+        <th scope="col">reorder Level</th>
         <th scope="col">discontinued</th>
         <th scope="col">Update</th>
         <th scope="col">Delete</th>
@@ -36,12 +36,12 @@
         <td>{{product.reorderLevel}}</td>
         <td>{{product.discontinued}}</td>
         <td>
-          <button type="button" (click)="selectedProductId(product)" class="btn btn-sm btn-warning shadow-sm">
+          <button type="button" (click)="selectedProductId(product)" class="btn btn-warning shadow-sm">
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
         </td>
         <td>
-          <button type="button" (click)="deleteProduct(product)" class="btn btn-sm btn-danger shadow-sm">
+          <button type="button" (click)="deleteProduct(product)" class="btn btn-danger shadow-sm">
             <i class="fa-solid fa-trash"></i>
           </button>
         </td>

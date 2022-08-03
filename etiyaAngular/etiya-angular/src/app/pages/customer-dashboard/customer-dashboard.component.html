@@ -38,13 +38,13 @@
         <td>{{customer.phone}}</td>
         <td>{{customer.customerKey}}</td>
         <td>
-          <button routerLink="edit/{{ customer.id }}" class="btn btn-sm btn-warning shadow-sm">
+          <button routerLink="edit/{{ customer.id }}" class="btn btn-warning shadow-sm">
             <i class="fa-solid fa-pen-to-square"></i>
           </button>
         </td>
         <td>
 
-          <button type="button"(click)="deleteCustomer(customer)" class="btn btn-sm btn-danger shadow-sm">
+          <button type="button"(click)="deleteCustomer(customer)" class="btn btn-danger shadow-sm">
             <i class="fa-solid fa-trash"></i>
           </button>
         </td>
