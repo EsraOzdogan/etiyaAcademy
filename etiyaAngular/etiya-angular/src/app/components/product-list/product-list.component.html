@@ -44,14 +44,14 @@
 
 <p>Sepetinizde {{cartItems.length}} ürün var</p>
 
-<div class="row">         <!-- .row>.col-4*3 -->
+<div class="row">          .row>.col-4*3 -->
   <!--<div *ngFor="let p of productList" class="col-4 mt-5">
     <etiya-product-card [product]="p" (onBtnClick)="addToCart($event)"></etiya-product-card>      <!--product="{{p}}"-->        <!--3-->
   <!--</div>
 
 </div> -->
 
-<ng-template [ngIf]="productList" [ngIfElse]="loading">
+<!-- <ng-template [ngIf]="productList" [ngIfElse]="loading">
   <div *ngIf="productList.length==0" class="alert alert-warning">
     <p>Ürün yok</p>
   </div>
@@ -77,5 +77,49 @@
   <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
-</ng-template>
+</ng-template> -->
 
+
+
+
+
+
+<div class="row">
+  <ng-container [ngSwitch]="status">
+      <h1 *ngSwitchCase="'init'">Welcome!</h1>
+      <div *ngSwitchCase="'loading'" class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <ng-container *ngSwitchCase="'loaded'" >     <!--ngFor ve ngSwitch aynı tagde olmaz o nedenle ng-container icinde-->
+
+        <!-- <div *ngIf="productList.length>0; else notFound"></div> -->
+
+          <ng-container *ngIfNot="productList.length===0 ; else notFound">
+
+            <div  *ngFor="let p of productList | filterProduct:filterText" class="col-4">
+              <etiya-product-card (onBtnClick)="addToCart($event)" [product]="p"></etiya-product-card>
+          </div>
+
+        </ng-container>
+
+      </ng-container>
+    <div *ngSwitchCaseDefault class="alert alert-danger" role="alert">
+      A simple danger alert—check it out!
+    </div>
+</ng-container>
+
+</div>
+<ng-template #notFound>Ürün yok</ng-template>
+
+
+
+
+<div class="col-4" *ngMultiple="5">
+  aaaa
+</div>
+
+
+ <div class="col-4" *appWelcome="1000; then otherState">
+  Welcome
+</div>
+<ng-template #otherState>Ürün yok</ng-template>

@@ -19,6 +19,9 @@ export class ProductListComponent implements OnInit {
   dataLoaded = false;
   filterText="";
 
+
+  status:string = "init";
+
   constructor(
     //private httpClient: HttpClient
     private productService: ProductService
@@ -32,7 +35,29 @@ export class ProductListComponent implements OnInit {
     //this.fillProductData()
     setTimeout(()=>{
       this.getProducts()
-  }, 3000);
+  }, 1500);
+
+
+
+
+  const value: string = "A";
+  switch (value) {
+    case "B":
+      console.log('B', value)
+      break;
+      case "A":
+        console.log('A', value)
+        break;
+
+    default:
+      console.log('else', value)
+      break;
+  }
+
+//Aynısı
+  if(value==="B") console.log('B', value)
+  else if(value==="A") console.log('A', value)
+  else console.log('else', value)
 
 
 
@@ -147,10 +172,11 @@ export class ProductListComponent implements OnInit {
   // }
 
   getProducts(){
+    this.status = 'loading;'
     this.productService.getList().subscribe(data=>{
       this.productList = data;
       this.dataLoaded = true;
-    })
+      setTimeout(()=>{this.status = 'loaded';    }, 1000); })
   }
 
 }

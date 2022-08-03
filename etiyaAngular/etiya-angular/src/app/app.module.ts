@@ -26,6 +26,9 @@ import { VatPipe } from './pipes/vat/vat.pipe';
 import { SaleDirective } from './directives/sale/sale.directive';
 import { FilterProductPipe } from './pipes/filterProduct/filter-product.pipe';
 import { ClickDirective } from './directives/click/click.directive';
+import { IfNotDirective } from './directives/ifNot/if-not.directive';
+import { MultipleDirective } from './directives/multiple/multiple.directive';
+import { WelcomeDirective } from './directives/welcome/welcome.directive';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { ClickDirective } from './directives/click/click.directive';
     VatPipe,
     SaleDirective,
     FilterProductPipe,
-    ClickDirective
+    ClickDirective,
+    IfNotDirective,
+    MultipleDirective,
+    WelcomeDirective
   ],
   imports: [
     BrowserModule,
