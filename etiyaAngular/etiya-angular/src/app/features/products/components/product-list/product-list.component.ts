@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import Product  from 'src/app/shared/models/product';
+import Product  from 'src/app/features/products/models/product';
 import { ProductService } from '../../services/products/product.service';
 
 @Component({

@@ -7,7 +7,7 @@ import { IfNotDirective } from './directives/ifNot/if-not.directive';
 import { ClickDirective } from './directives/click/click.directive';
 import { MultipleDirective } from './directives/multiple/multiple.directive';
 import { WelcomeDirective } from './directives/welcome/welcome.directive';
-import { CategoryComponent } from './components/category/category.component';
+import { StorageModule } from './storage/storage.module';
 
 
 @NgModule({
@@ -16,19 +16,18 @@ import { CategoryComponent } from './components/category/category.component';
     ClickDirective,
     MultipleDirective,
     WelcomeDirective,
-    CategoryComponent
   ],
   imports: [
     CommonModule,
     CoreRoutingModule,
-    AuthModule
+    AuthModule,
+    StorageModule
   ],
   exports: [             //diger moduller kullansın diye
     IfNotDirective,
     ClickDirective,
     MultipleDirective,
     WelcomeDirective,
-    CategoryComponent
   ]
 })
 export class CoreModule { }

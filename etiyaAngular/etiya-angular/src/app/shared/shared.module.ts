@@ -1,29 +1,29 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { ProductsModule } from './../features/products/products.module';
-import { HttpClientModule } from '@angular/common/http';
+import { CategoriesModule } from './../features/categories/categories.module';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FilterProductPipe } from './pipes/filterProduct/filter-product.pipe';
-import { NavbarComponent } from './layouts/navbar/navbar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
 
+import { SharedRoutingModule } from './shared-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    FilterProductPipe
+    HomepageComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
-    NgbModule,
-    RouterModule
+    SharedRoutingModule,
+    CategoriesModule,
+    ProductsModule,
+    BrowserModule,
+    NgbModule
   ],
-  exports: [
-    NavbarComponent,
-    FilterProductPipe
-
-  ]
+  exports:[NavbarComponent]
 })
 export class SharedModule { }
