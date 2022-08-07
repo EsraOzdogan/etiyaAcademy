@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: rgb(176, 127, 127);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">ETİYA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,9 +15,13 @@
         <li ngbDropdown class="d-block">
           <button type="button" class="btn" style="background-color: rgb(176, 127, 127); color: white;" id="dropdownBasic1" ngbDropdownToggle routerLinkActive="active">Dashboard</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem routerLink="/dashboard/customer">Customer</button>
-            <button ngbDropdownItem routerLink="/dashboard/product">Product</button>
+            <button ngbDropdownItem routerLink="/dashboard/customers">Customer</button>
+            <button ngbDropdownItem routerLink="/dashboard/products">Product</button>
           </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" (click)="testAuth()">Test Auth</a>
         </li>
       </ul>
 
