@@ -1,3 +1,5 @@
+import { ErrorHandlingInterceptor } from './interceptors/error-handling/error-handling.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -28,6 +30,9 @@ import { StorageModule } from './storage/storage.module';
     ClickDirective,
     MultipleDirective,
     WelcomeDirective,
+  ],
+  providers : [
+    {provide: HTTP_INTERCEPTORS, useClass : ErrorHandlingInterceptor, multi : true}
   ]
 })
 export class CoreModule { }
