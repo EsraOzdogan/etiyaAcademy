@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartSummaryComponent implements OnInit {
 
-  cartItem!:CartItem[];
+  cartItems!:CartItem[];
 
   constructor(private cartService : CartService) { }
 
@@ -18,8 +18,9 @@ export class CartSummaryComponent implements OnInit {
   }
 
   showCartSummary(){
-    this.cartService.addCart.subscribe(data =>{
-      this.cartItem = data
+    this.cartService.addCart.subscribe(data =>{     //event'e abone olarak degisiklikleri yakalıyorum
+      this.cartItems = data
+      debugger
     })
   }
 

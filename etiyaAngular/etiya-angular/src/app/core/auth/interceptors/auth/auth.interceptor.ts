@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private jwtHelperService: JwtHelperService) {}
-
+   //sayac koyup kontrol edebilirsin
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.jwtHelperService.tokenGetter();     // jwtHelperService ile token'ı alıyoruz ve isteği clonelıyoruz
     const newRequest = request.clone({
