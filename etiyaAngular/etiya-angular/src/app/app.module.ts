@@ -11,6 +11,7 @@ import { AdminModule } from './features/admin/admin.module';
 import { CustomersModule } from './features/customers/customers.module';
 import { CategoriesModule } from './features/categories/categories.module';
 import { SuppliersModule } from './features/suppliers/suppliers.module';
+import { CartModule } from './features/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SuppliersModule } from './features/suppliers/suppliers.module';
     AdminModule,
     CustomersModule,
     CategoriesModule,
-    SuppliersModule
+    SuppliersModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

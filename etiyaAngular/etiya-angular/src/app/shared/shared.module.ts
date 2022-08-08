@@ -1,3 +1,4 @@
+import { CartModule } from './../features/cart/cart.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProductsModule } from './../features/products/products.module';
@@ -22,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CategoriesModule,
     ProductsModule,
     BrowserModule,
-    NgbModule
+    NgbModule,
+    CartModule
   ],
   exports:[NavbarComponent]
 })

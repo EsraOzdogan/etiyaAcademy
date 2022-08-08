@@ -15,7 +15,6 @@ import { ToastrModule } from 'ngx-toastr';
     AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ]

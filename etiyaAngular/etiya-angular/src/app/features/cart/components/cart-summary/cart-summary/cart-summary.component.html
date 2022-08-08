@@ -1,0 +1,14 @@
+<li *ngIf="cartItem" ngbDropdown  class="d-block">
+
+  <button type="button" class="btn" style="background-color: rgb(176, 127, 127); color: white;" id="dropdownBasic1" ngbDropdownToggle routerLinkActive="active">Cart</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1" *ngFor="let item of cartItem">
+    <button ngbDropdownItem>{{item.quantity}}</button>
+       {{item.product.name}}
+       <button ngbDropdownItem (click)="removeFromCart(item)">Delete</button>
+  </div>
+
+
+
+</li>
+
+

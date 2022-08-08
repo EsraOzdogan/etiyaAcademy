@@ -34,6 +34,7 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
   ],
   exports: [       //farklı modulde kullanabilsin diye , app module
   ProductListComponent,
+  ProductCardComponent
   ]
 })
 export class ProductsModule { }
