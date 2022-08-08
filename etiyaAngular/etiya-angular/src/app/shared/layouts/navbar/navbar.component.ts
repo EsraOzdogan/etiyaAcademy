@@ -1,3 +1,5 @@
+import { TokenUserModel } from './../../../core/auth/models/tokenUserModel';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/auth/services/auth.service';
 
@@ -7,8 +9,11 @@ import { AuthService } from 'src/app/core/auth/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  tokenUserModel$!: Observable<TokenUserModel | undefined>;
 
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService) {
+    this.tokenUserModel$ = this.authService.tokenUserModel$;
+   }
 
   ngOnInit(): void {
   }
@@ -17,5 +22,9 @@ export class NavbarComponent implements OnInit {
     this.authService.test().subscribe(response =>{
       console.log(response)
     })
+  }
+
+  logout(){
+    this.authService.logOut();
   }
 }

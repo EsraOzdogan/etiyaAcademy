@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: rgb(176, 127, 127);">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">ETİYA</a>
+    <a class="navbar-brand">ETİYA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,12 +25,29 @@
         </li>
       </ul>
 
-
+      <app-cart-summary></app-cart-summary>
       <form class="d-flex" role="search">
-        <app-cart-summary></app-cart-summary>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button> -->
       </form>
+
+      <div
+        *ngIf="!(tokenUserModel$ | async)"
+        class="d-flex justify-content-center order-0 order-lg-1"
+      >
+        <a class="btn mx-2 py-2 px-4 rounded-1 bg-transparent" routerLink="register">Sign Up</a>
+        <a class="btn btn-secondary mx-2 py-2 px-4 rounded-1 shadow" routerLink="login">Log in</a>
+      </div>
+
+      <div *ngIf="tokenUserModel$ | async" ngbDropdown class="d-block">      <!-- async ile gelen Observable'a abone oluyor ve ulaşıyor.-->
+        <button type="button" class="btn" style="background-color: rgb(176, 127, 127); color: white;" id="dropdownBasic1" ngbDropdownToggle>
+          {{ (tokenUserModel$ | async)?.userName }}
+        </button>
+        <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="accountMenu">
+          <li ngbDropdownItem (click)="logout()">Log out</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </nav>

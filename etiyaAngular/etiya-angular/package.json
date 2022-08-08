@@ -21,6 +21,7 @@
     "@angular/router": "^14.0.0",
     "@auth0/angular-jwt": "^5.0.2",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
+    "@ngrx/store": "^14.0.2",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
     "jquery": "^3.6.0",

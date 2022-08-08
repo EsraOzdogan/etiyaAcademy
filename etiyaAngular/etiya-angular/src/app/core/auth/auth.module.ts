@@ -9,6 +9,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { tokenGetter } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { authReducers } from './store/auth.reducer';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
         disallowedRoutes: [],
       },
     }),
+    StoreModule.forRoot(authReducers)
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }]
 })
