@@ -1,3 +1,5 @@
+//Json2ts extension
+//ctrl+alt+V
 export default interface Product { //Pascal Case
 	id: number;
 	supplierId: number;
