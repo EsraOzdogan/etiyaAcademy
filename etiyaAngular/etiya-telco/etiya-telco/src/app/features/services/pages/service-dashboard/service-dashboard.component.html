@@ -1,0 +1,48 @@
+<!-- <div class="row mb-2" >
+  <div class="col-11">
+    <h3>Services List</h3>
+  </div>
+  <div class="col-1">
+    <button pButton pRipple type="button" label="Add" routerLink="/add"  icon="pi pi-plus" class="p-button-raised p-button-warning"></button>
+  </div>
+</div> -->
+
+
+<div class="card">
+  <p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+      <h3>Services List</h3>
+    </ng-template>
+      <ng-template pTemplate="right">
+        <button pButton pRipple type="button" label="Add" routerLink="/add"  icon="pi pi-plus" class="p-button-raised p-button-warning"></button>
+      </ng-template>
+  </p-toolbar>
+<p-table [value]="serviceList" styleClass="p-datatable-gridlines" [lazy]="true" (onLazyLoad)="loadServices($event)"
+  [loading]="loading">
+  <ng-template pTemplate="caption">
+    Total Records : {{totalRecords}}
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th class="col-2"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-service>
+    <tr>
+      <td>{{service.id}}</td>
+      <td>{{service.name}}</td>
+      <td>
+        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" style="margin-right: 5px;" routerLink="/service/{{ service.id }}"></button>
+        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteService(service)"></button>
+    </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="p-d-flex p-ai-center p-jc-between">
+        In total there are {{serviceList ? serviceList.length : 0 }} products.
+    </div>
+</ng-template>
+</p-table>
+</div>
