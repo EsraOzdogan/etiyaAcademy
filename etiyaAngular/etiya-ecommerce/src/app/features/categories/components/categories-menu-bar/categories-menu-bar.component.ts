@@ -46,6 +46,15 @@ export class CategoriesMenuBarComponent implements OnInit {
         //queryParams : {categoryId : category.id , categoryName : category.name},
         queryParams : {categoryId : category.id},
       }
+    });
+
+    // unshift()  -->arraya eleman ekleme
+
+    this.items.unshift(
+      {
+        label: 'All',
+        routerLink: [''],
+        //queryParams: {categoryId: 0}
     })
 
   }
