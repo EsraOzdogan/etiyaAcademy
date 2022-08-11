@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 //import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     SharedModule,
     FeaturesModule,
+    CoreModule,
     //HttpClientModule, //sadece app.module.ts de olursa her moduleden kullanılır
 
   ],
