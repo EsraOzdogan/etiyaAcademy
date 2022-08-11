@@ -19,17 +19,6 @@ export class ServiceListComponent implements OnInit {
     this.getServices();
   }
 
-  loadServices(event: LazyLoadEvent) {
-    this.loading = true;
-    setTimeout(() => {
-        if (this.serviceList) {
-            this.loading = false;
-        }
-    }, 1000);
-}
-
-
-
 getServices() {
     this.serviceService.getAll().subscribe(response => {
       this.serviceList = response;
