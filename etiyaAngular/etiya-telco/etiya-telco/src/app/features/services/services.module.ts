@@ -1,9 +1,9 @@
+import { ServiceFormComponent } from './components/service-form/service-form.component';
+import { ServiceListComponent } from './components/service-list/service-list.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ServicesRoutingModule } from './services-routing.module';
-import { ServiceDashboardComponent } from './pages/service-dashboard/service-dashboard.component';
-import { ServiceFormComponent } from './pages/service-form/service-form.component';
 
 import {TableModule} from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ServiceDashboardComponent,
+    ServiceListComponent,
     ServiceFormComponent
   ],
   imports: [
@@ -25,7 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   exports : [
-    ServiceDashboardComponent
+    ServiceListComponent
   ]
 })
 export class ServicesModule { }

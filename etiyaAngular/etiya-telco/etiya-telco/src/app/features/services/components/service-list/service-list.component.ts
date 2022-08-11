@@ -1,14 +1,14 @@
-import { ServicesService } from './../../services/services.service';
-import { Service } from './../../models/service';
+import { ServicesService } from '../../services/services.service';
+import { Service } from '../../models/service';
 import { Component, OnInit } from '@angular/core';
 import { LazyLoadEvent, PrimeNGConfig } from 'primeng/api';
 
 @Component({
-  selector: 'app-service-dashboard',
-  templateUrl: './service-dashboard.component.html',
-  styleUrls: ['./service-dashboard.component.css']
+  selector: 'app-service-list',
+  templateUrl: './service-list.component.html',
+  styleUrls: ['./service-list.component.css']
 })
-export class ServiceDashboardComponent implements OnInit {
+export class ServiceListComponent implements OnInit {
   datasource!: Service[];
   serviceList!: Service[];
   loading !: boolean ;

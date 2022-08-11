@@ -1,10 +1,10 @@
-import { ServiceFormComponent } from './pages/service-form/service-form.component';
-import { ServiceDashboardComponent } from './pages/service-dashboard/service-dashboard.component';
+import { ServiceFormComponent } from './components/service-form/service-form.component';
+import { ServiceListComponent } from './components/service-list/service-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path:'services',component:ServiceDashboardComponent},
+  {path:'services',component:ServiceListComponent},
   {path:'add',component:ServiceFormComponent},
   {path:'service/:id',component:ServiceFormComponent},
 ];
