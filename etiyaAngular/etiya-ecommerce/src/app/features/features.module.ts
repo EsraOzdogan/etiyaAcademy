@@ -16,10 +16,10 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     FeaturesRoutingModule,
+    HttpClientModule,
     ProductsModule,
     SharedModule,
-    CategoriesModule,
-    HttpClientModule
+    CategoriesModule
   ]
 })
 export class FeaturesModule { }
