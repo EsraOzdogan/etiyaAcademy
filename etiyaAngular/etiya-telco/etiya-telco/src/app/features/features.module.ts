@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { CustomersModule } from './customers/customers.module';
 import { ServicesModule } from './services/services.module';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,8 @@ import { HomepageComponent } from './common/pages/homepage/homepage.component';
     CommonModule,
     FeaturesRoutingModule,
     ServicesModule,
-    CustomersModule
+    CustomersModule,
+    SharedModule
   ]
 })
 export class FeaturesModule { }
