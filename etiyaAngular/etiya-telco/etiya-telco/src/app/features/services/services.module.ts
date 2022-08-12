@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { ServiceFormComponent } from './components/service-form/service-form.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import { ServiceDashboardComponent } from './pages/service-dashboard/service-das
     ToolbarModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   exports : [
     ServiceListComponent
