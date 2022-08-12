@@ -13,23 +13,26 @@ export class ServiceListComponent implements OnInit {
   serviceList!: Service[];
   loading !: boolean ;
   totalRecords !: number;
+  fetchStatus = "pending";
+
   constructor(private serviceService : ServicesService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
-    this.getServices();
+    setTimeout(() => {
+      this.getServices();
+    }, 1500);
+
   }
 
 getServices() {
     this.serviceService.getAll().subscribe(response => {
       this.serviceList = response;
       this.totalRecords = response.length;
-      this.loading = true;
-        this.primengConfig.ripple = true;
+       this.fetchStatus = 'loaded';
+    },
+    (error) => {
+      this.fetchStatus = 'error';
     })
-  }
-
-  editService(service : Service){
-
   }
 
   deleteService(service : Service){
