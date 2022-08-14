@@ -25,6 +25,7 @@ import { CoreModule } from './core/core.module';
     ToastModule,
     BrowserAnimationsModule,
     CoreModule
+
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
