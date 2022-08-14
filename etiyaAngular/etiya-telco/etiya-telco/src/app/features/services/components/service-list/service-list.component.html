@@ -54,11 +54,9 @@
 </ng-container>
 
 
-  <div class="card"  *ngIf="fetchStatus=='pending'">
-    <div class="col-4">
-      <app-table-skeleton class="mt-3 mb-2"></app-table-skeleton>
-    </div>
-  </div>
+  <ng-container class="card"  *ngIf="fetchStatus=='pending'">
+    <app-table-skeleton class="mt-3 mb-2"></app-table-skeleton>
+  </ng-container>
 
   <ng-container *ngIf="fetchStatus=='error'">
     <div class="col-12">
