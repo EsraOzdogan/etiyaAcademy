@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ProductForAdd } from '../../models/productForAdd';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,9 @@ export class ProductsService {
 
   getAllByCategories(categoryId: number): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.apiControllerUrl + `?categoryId=${categoryId}`);
+  }
+
+  add(product: ProductForAdd): Observable<Product> {
+    return this.httpClient.post<Product>(this.apiControllerUrl, product);
   }
 }
