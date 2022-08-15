@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CoreModule } from './../core/core.module';
 import { SkeletonModule } from 'primeng/skeleton';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,7 @@ import { CardSkeletonComponent } from './components/card-skeleton/card-skeleton.
     CardSkeletonComponent
   ],
   imports: [
-    CommonModule, SkeletonModule, CoreModule
+    CommonModule, SkeletonModule, CoreModule, RouterModule
   ],
   exports: [
     NavbarComponent,
