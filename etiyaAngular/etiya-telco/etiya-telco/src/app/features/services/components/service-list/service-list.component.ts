@@ -1,6 +1,6 @@
 import { ServicesService } from '../../services/services.service';
 import { Service } from '../../models/service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LazyLoadEvent, PrimeNGConfig } from 'primeng/api';
 
 @Component({
@@ -9,38 +9,26 @@ import { LazyLoadEvent, PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./service-list.component.css']
 })
 export class ServiceListComponent implements OnInit {
-  datasource!: Service[];
-  serviceList!: Service[];
+  @Input() serviceList!: Service[];
   loading !: boolean ;
   totalRecords !: number;
-  fetchStatus = "pending";
+  //fetchStatus = "pending";
+  @Input() fetchStatus!: string
 
-  constructor(private serviceService : ServicesService, private primengConfig: PrimeNGConfig) { }
+  constructor(private serviceService : ServicesService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.getServices();
-    }, 1500);
+
 
   }
 
-getServices() {
-    this.serviceService.getAll().subscribe(response => {
-      this.serviceList = response;
-      this.totalRecords = response.length;
-       this.fetchStatus = 'loaded';
-    },
-    (error) => {
-      this.fetchStatus = 'error';
-    })
-  }
 
   deleteService(service : Service){
     if(confirm("Are you sure to delete?")){
       this.serviceService.delete(service).subscribe()
     }
     setTimeout(() => {
-      this.getServices();
+      //this.getServices();
     }, 1000);
 
   }

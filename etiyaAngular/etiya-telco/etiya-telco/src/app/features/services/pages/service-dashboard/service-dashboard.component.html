@@ -1,1 +1,36 @@
-<p>service-dashboard works!</p>
+<etiya-main-layout>
+  <!-- <app-service-list></app-service-list> -->
+
+  <ng-container   *ngIf="fetchStatus=='loaded'">
+    <div class="card" >
+      <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+          <h3>Services</h3>
+        </ng-template>
+          <ng-template pTemplate="right">
+            <button pButton pRipple type="button" label="Add" routerLink="/add"  icon="pi pi-plus" class="p-button-raised p-button-warning"></button>
+          </ng-template>
+      </p-toolbar>
+
+      <app-service-list [fetchStatus]="fetchStatus" [serviceList]="serviceList"></app-service-list>
+    </div>
+  </ng-container>
+
+
+
+  <ng-container class="card"  *ngIf="fetchStatus=='pending'">
+    <app-table-skeleton class="mt-3 mb-2"></app-table-skeleton>
+  </ng-container>
+
+  <ng-container *ngIf="fetchStatus=='error'">
+    <div class="col-12">
+      <div class="alert alert-danger" role="alert">
+        Unable to fetch products from server.
+      </div>
+    </div>
+</ng-container>
+
+
+
+
+</etiya-main-layout>

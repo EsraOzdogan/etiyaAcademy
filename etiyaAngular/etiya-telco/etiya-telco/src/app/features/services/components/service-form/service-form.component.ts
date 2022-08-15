@@ -5,6 +5,8 @@ import { MessageService } from 'primeng/api';
 import { Service } from '../../models/service';
 import { ServicesService } from '../../services/services.service';
 
+import {MenuItem} from 'primeng/api';
+
 @Component({
   selector: 'app-service-form',
   templateUrl: './service-form.component.html',
@@ -15,6 +17,11 @@ export class ServiceFormComponent implements OnInit {
   serviceForm! : FormGroup;
   service!:Service;
 
+  items!: MenuItem[];
+
+  home!: MenuItem;
+
+
   constructor(private formBuilder:FormBuilder,private activatedRoute:ActivatedRoute,
     private servicesService:ServicesService,private router:Router,private messageService:MessageService) { }
 
@@ -23,6 +30,14 @@ export class ServiceFormComponent implements OnInit {
       if (params['id']) this.getServiceById(params['id']);
       else this.createServiceForm();
     });
+
+    this.items = [
+      {label: 'Services', routerLink:"/services"},
+      {label: 'Edit'}
+  ];
+
+  this.home = {icon: 'pi pi-home', routerLink: "/homepage"};
+
   }
 
   createServiceForm(): void{
@@ -58,7 +73,7 @@ export class ServiceFormComponent implements OnInit {
       setTimeout(() => {
       this.messageService.add({severity:'success', summary:'Add', detail:'Service has been added.'});
         this.router.navigateByUrl("/services");
-      }, 1000);
+      }, 4000);
     })
   }
 
@@ -73,7 +88,7 @@ export class ServiceFormComponent implements OnInit {
         setTimeout(() => {
           this.router.navigateByUrl("/services");
       this.messageService.add({severity:'success', summary:'Update', detail:'Service has been updated.'});
-        }, 1000);
+        }, 4000);
       });
   }
 

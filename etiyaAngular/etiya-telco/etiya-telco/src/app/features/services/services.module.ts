@@ -12,6 +12,11 @@ import {ToolbarModule} from 'primeng/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceDashboardComponent } from './pages/service-dashboard/service-dashboard.component';
 
+import {BreadcrumbModule} from 'primeng/breadcrumb';
+
+import { MessagesModule } from 'primeng/messages';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
 @NgModule({
   declarations: [
     ServiceListComponent,
@@ -26,10 +31,11 @@ import { ServiceDashboardComponent } from './pages/service-dashboard/service-das
     ToolbarModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    BreadcrumbModule
   ],
   exports : [
-    ServiceListComponent
+    ServiceDashboardComponent
   ]
 })
 export class ServicesModule { }

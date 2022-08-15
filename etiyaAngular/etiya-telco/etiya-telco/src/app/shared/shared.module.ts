@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -21,7 +22,7 @@ import { SkeletonModule } from 'primeng/skeleton';
     TableSkeletonComponent,
   ],
   imports: [
-    CommonModule, ProgressSpinnerModule, TableModule, SkeletonModule
+    CommonModule, ProgressSpinnerModule, TableModule, SkeletonModule, RouterModule
   ],
   exports : [
     NavbarComponent,

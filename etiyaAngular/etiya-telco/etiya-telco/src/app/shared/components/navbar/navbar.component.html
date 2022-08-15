@@ -9,27 +9,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" >Home</a>
+          <a class="nav-link" aria-current="page" routerLink="/homepage" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="login" >Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" >Pricing</a>
+          <a class="nav-link" routerLink="/services" routerLinkActive="active" >Services</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Customers
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" >Action</a></li>
-            <li><a class="dropdown-item" >Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" >Something else here</a></li>
+            <li><a class="dropdown-item" routerLink="/services" routerLinkActive="active">Individual Customers</a></li>
+            <li><a class="dropdown-item" >Corporate Customers</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
         </li>
       </ul>
 
@@ -40,12 +32,12 @@
     *ngIf="!(tokenUserModel$ | async)"
     class="d-flex justify-content-center order-0 order-lg-1"
   >
-    <a class="btn mx-2 py-2 px-4 rounded-1" style="background-color: #f78200; color: white;">Sign Up</a>
-    <a class="btn btn-secondary mx-2 py-2 px-4 rounded-1 shadow" routerLink="login">Log in</a>
+    <a class="btn mx-2 py-2 px-4 rounded-1 bg-transparent" style=" color: #FFF;">Sign Up</a>
+    <a class="btn mx-2 py-2 px-4 rounded-1 shadow" routerLink="/login" style="background-color: #f78200;">Log in</a>
   </div>
 
   <div *ngIf="tokenUserModel$ | async" ngbDropdown class="d-block">      <!-- async ile gelen Observable'a abone oluyor ve ulaşıyor.-->
-    <button type="button" class="btn" style="background-color:#f78200; color: white;" id="dropdownBasic1" ngbDropdownToggle>
+    <button type="button" class="btn" style="background-color:#f78200; color: #FFF;" id="dropdownBasic1" ngbDropdownToggle>
       {{ (tokenUserModel$ | async)?.userName }}
     </button>
     <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="accountMenu">
