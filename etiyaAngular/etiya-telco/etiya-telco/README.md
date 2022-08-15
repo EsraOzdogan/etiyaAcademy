@@ -24,6 +24,7 @@
 
 # About The Project
 
+![TelcoProject](https://github.com/EsraOzdogan/etiyaAcademy/tree/main/etiyaAngular/etiya-telco/etiya-telco/src/assets/screenshot/homepage.png)
 
 ## Built With
 
