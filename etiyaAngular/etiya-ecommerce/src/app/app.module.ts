@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,7 +20,7 @@ import { CoreModule } from './core/core.module';
     FeaturesModule,
     CoreModule,
     //HttpClientModule, //sadece app.module.ts de olursa her moduleden kullanılır
-
+    RouterModule //for shared routing,project routing
   ],
   providers: [],
   bootstrap: [AppComponent]
