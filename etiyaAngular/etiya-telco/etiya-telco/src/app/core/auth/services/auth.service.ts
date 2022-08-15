@@ -3,7 +3,7 @@ import { TokenUserModel } from './../models/tokenUserModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { MessageResultModel } from '../../models/messageResultModel';
 import { UserForLoginModel } from '../models/userForLoginModel';
@@ -22,7 +22,7 @@ export class AuthService {
     .pipe(map(state => state.tokenUserModel));
 
 
-  apicontrollerUrl:string = `${environment.apiUrl}/auth`;
+    apiControllerUrl:string = `${environment.apiUrl}/auth`;
 
 
   constructor(
@@ -34,7 +34,20 @@ export class AuthService {
     ) { }
 
   login(userForLoginModel:UserForLoginModel): Observable<UserLoginResponseModel>{
-    return this.httpClient.post<UserLoginResponseModel>(`${this.apicontrollerUrl}/login`,userForLoginModel)
+    const subject = new Subject<UserLoginResponseModel>();
+
+    this.httpClient
+      .post<UserLoginResponseModel>(
+        this.apiControllerUrl + '/login',
+        userForLoginModel
+      )
+      .subscribe(response => {
+        if (!response.success) return;
+        this.saveToken(response);
+        subject.next(response);
+      });
+
+    return subject.asObservable();
   }
 
   saveToken(userLoginResponseModel:UserLoginResponseModel){
@@ -44,11 +57,10 @@ export class AuthService {
   }
 
   test():Observable<MessageResultModel>{
-    return this.httpClient.get<MessageResultModel>(`${this.apicontrollerUrl}/test`)
+    return this.httpClient.get<MessageResultModel>(`${this.apiControllerUrl}/test`)
   }
 
   get isAuthhenticated(): boolean{
-    if(!this.jwtHelperService.tokenGetter()) return false;
     if(this.jwtHelperService.isTokenExpired()) return false;
     return true;
   }
@@ -67,8 +79,4 @@ export class AuthService {
     this.store.dispatch(removeTokenUserModel());
   }
 
-}
-
-export function tokenGetter(){
-  return localStorage.getItem('token')
 }
