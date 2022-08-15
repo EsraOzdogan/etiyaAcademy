@@ -1,3 +1,4 @@
+import { StorageService } from './storage/services/storageService';
 import { LoginComponent } from './auth/pages/login/login.component';
 import { LoadingInterceptor } from './interceptors/loading-interceptor/loading.interceptor';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,18 @@ import { StorageModule } from './storage/storage.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { LocalStorageService } from './storage/services/local-storage.service';
+
+export function jwtOptionsFactory(storageService: StorageService) {
+  return {
+    tokenGetter: () => {
+      return storageService.get('token');
+    },
+    allowedDomains: ['localhost:3000'],
+  };
+}
+
 
 @NgModule({
   declarations: [
@@ -25,6 +38,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     InputTextModule,      //for login page
     ButtonModule,
     ReactiveFormsModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+        deps: [LocalStorageService],
+      },
+    }),
   ],
   exports : [CreateFakeArrayPipe, LoadingOverlayComponent],
   providers : [{provide : HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}]
