@@ -1,5 +1,5 @@
 import { Category } from './../../models/category';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { CategoriesService } from '../../services/categories/categories.service';
 import {MegaMenuItem} from 'primeng/api';
 
@@ -7,15 +7,19 @@ import {MegaMenuItem} from 'primeng/api';
   selector: 'app-categories-menu-bar',
   templateUrl: './categories-menu-bar.component.html',
   styleUrls: ['./categories-menu-bar.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush  //todo: research
-  changeDetection: ChangeDetectionStrategy.Default
+  //changeDetection: ChangeDetectionStrategy.OnPush  //todo: research   //onPush sadece bellek adreslerine bakıyor. bellek adresindeki verilerin degisikligine bakmıyor.Bu nedenle CategoriesMenuBarComponent 'in güncellenmesi icin yeniden atanması lazım.Bu islem inputta yapılır
+  changeDetection: ChangeDetectionStrategy.Default  //Statelerin degistigini angular otomatik olarak algılıyor bellek adresi ve bellek adresindeki verileri izliyor
 
 })
 export class CategoriesMenuBarComponent implements OnInit {
   categories! : Category[];
   items! : MegaMenuItem[];
+  //@Input() items! : MegaMenuItem[];  //items'ı hompagecomponentten gectik
+  //onPush Note: 1. Yol @Input'un parent'da yeniden set edilmesi.
 
-  constructor(private categoriesService : CategoriesService) { }
+  constructor(private categoriesService : CategoriesService,
+    private changeDetectorRef: ChangeDetectorRef     //3.YÖNTEM
+    ) { }
 
   ngOnInit(): void {
     this.getCategories();
@@ -28,6 +32,10 @@ export class CategoriesMenuBarComponent implements OnInit {
     })
   }
 
+
+
+  //2. YÖNTEM
+  //onPush Note: 2. Yol html içerisinde bir event çağrılması.
   configureItems(){
     //this.items = [];
 
@@ -57,6 +65,10 @@ export class CategoriesMenuBarComponent implements OnInit {
         //queryParams: {categoryId: 0}
     })
 
+     //3.YÖNTEM
+  //this.changeDetectorRef.markForCheck(); //State üzerinde degisiklik yaptım git bak demek. Manuel olarak yani
   }
+
+
 
 }
