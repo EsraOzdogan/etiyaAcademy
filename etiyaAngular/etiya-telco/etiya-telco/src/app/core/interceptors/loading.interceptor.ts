@@ -13,26 +13,37 @@ import { catchError, finalize, map } from 'rxjs/operators';
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
 
-  constructor(private loaderService: LoadingService) {
+  constructor(private loadingService: LoadingService) {
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.warn(request.method)
+    // console.warn(request.method)
 
-    setTimeout(() => {
+    // setTimeout(() => {
 
-      if(request.method == "POST" || request.method == "PUT" || request.method == "DELETE"){
-        this.loaderService.show();
-      }
-      else{
-        this.loaderService.hide()
-      }
+    //   if(request.method == "POST" || request.method == "PUT" || request.method == "DELETE"){
+    //     this.loaderService.show();
+    //   }
+    //   else{
+    //     this.loaderService.hide()
+    //   }
 
-    }, 200);
+    // }, 200);
 
-     return next.handle(request).pipe(
-           finalize(() => this.loaderService.hide()),
-     );
+    //  return next.handle(request).pipe(
+    //        finalize(() => this.loaderService.hide()),
+    //  );
+
+
+    if (request.method != 'GET') this.loadingService.setIsLoading(true);
+
+    return next.handle(request).pipe(
+      finalize(() => {
+        setTimeout(() => {
+          this.loadingService.setIsLoading(false);
+        }, 3000);
+      })
+    );
   }
 
 

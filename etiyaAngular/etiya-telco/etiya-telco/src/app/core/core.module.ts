@@ -6,10 +6,12 @@ import { CoreRoutingModule } from './core-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StorageModule } from './storage/storage.module';
 import { AuthModule } from './auth/auth.module';
+import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 
 
 @NgModule({
   declarations: [
+    LoadingOverlayComponent
   ],
   imports: [
     CommonModule,
@@ -17,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
     AuthModule,
     StorageModule
   ],
+  exports : [ LoadingOverlayComponent],
   providers : [
     {provide: HTTP_INTERCEPTORS, useClass : LoadingInterceptor, multi : true}
   ]
