@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path:'services',component:ServiceDashboardComponent},
+  {path:'services-list',component:ServiceDashboardComponent},
   {path:'add',component:ServiceFormComponent},
   {path:'service/:id',component:ServiceFormComponent},
 ];

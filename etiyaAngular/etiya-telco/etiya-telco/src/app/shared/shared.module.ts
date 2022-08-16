@@ -1,3 +1,6 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { NgModule } from '@angular/core';
@@ -11,6 +14,9 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { TableSkeletonComponent } from './components/table-skeleton/table-skeleton.component';
 import { SkeletonModule } from 'primeng/skeleton';
+import { DashboardHomeComponent } from './pages/dashboard-home/dashboard-home.component';
+
+import {SidebarModule} from 'primeng/sidebar';
 
 @NgModule({
   declarations: [
@@ -20,9 +26,12 @@ import { SkeletonModule } from 'primeng/skeleton';
     DashboardLayoutComponent,
     LoadingSpinnerComponent,
     TableSkeletonComponent,
+    DashboardHomeComponent,
   ],
   imports: [
-    CommonModule, ProgressSpinnerModule, TableModule, SkeletonModule, RouterModule
+    CommonModule, ProgressSpinnerModule, TableModule, SkeletonModule, RouterModule, SidebarModule,ButtonModule,
+    BrowserModule,
+    BrowserAnimationsModule
   ],
   exports : [
     NavbarComponent,

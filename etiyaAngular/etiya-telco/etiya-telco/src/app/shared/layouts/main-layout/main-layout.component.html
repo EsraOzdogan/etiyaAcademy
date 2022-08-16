@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <etiya-navbar></etiya-navbar>
 </header>
 <main class="container mt-5">
@@ -6,4 +6,32 @@
 </main>
 <footer>
   <etiya-footer></etiya-footer>
-</footer>
+</footer> -->
+<!--
+<div class="min-vh-100 d-flex flex-column">
+  <header>
+    <etiya-navbar></etiya-navbar>
+  </header>
+
+  <main class="container flex-fill">
+    <ng-content></ng-content>
+  </main>
+
+  <footer>
+    <etiya-footer></etiya-footer>
+  </footer>
+</div>
+
+<etiya-loading-overlay></etiya-loading-overlay> -->
+
+
+<div class="min-vh-100 d-flex flex-column">
+  <etiya-navbar></etiya-navbar>
+
+  <div class="container flex-fill">
+    <ng-content></ng-content>
+  </div>
+
+  <etiya-footer></etiya-footer>
+</div>
+
