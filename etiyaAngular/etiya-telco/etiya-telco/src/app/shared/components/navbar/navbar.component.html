@@ -15,11 +15,11 @@
           <a class="nav-link" routerLink="/services" routerLinkActive="active" >Services</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false" routerLink="/services">
             Customers
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/services" routerLinkActive="active">Individual Customers</a></li>
+            <li><a class="dropdown-item" routerLink="/services">Individual Customers</a></li>
             <li><a class="dropdown-item" >Corporate Customers</a></li>
           </ul>
         </li>
@@ -36,12 +36,12 @@
     <a class="btn mx-2 py-2 px-4 rounded-1 shadow" routerLink="/login" style="background-color: #f78200;">Log in</a>
   </div>
 
-  <div *ngIf="tokenUserModel$ | async" ngbDropdown class="d-block">      <!-- async ile gelen Observable'a abone oluyor ve ulaşıyor.-->
-    <button type="button" class="btn" style="background-color:#f78200; color: #FFF;" id="dropdownBasic1" ngbDropdownToggle>
+  <div *ngIf="tokenUserModel$ | async" class="d-block dropdown">      <!-- async ile gelen Observable'a abone oluyor ve ulaşıyor.-->
+    <button type="button" class="btn dropdown-toggle" style="background-color:#f78200; color: #FFF;" data-bs-toggle="dropdown" aria-expanded="false">
       {{ (tokenUserModel$ | async)?.userName }}
     </button>
-    <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="accountMenu">
-      <li ngbDropdownItem (click)="logout()">Log out</li>
+    <ul class="dropdown-menu">
+      <li><button  class="dropdown-item" (click)="logout()">Log out</button></li>
     </ul>
   </div>
   </div>
