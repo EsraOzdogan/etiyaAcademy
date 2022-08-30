@@ -12,14 +12,14 @@
           <a class="nav-link" aria-current="page" routerLink="/homepage" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/services" routerLinkActive="active" >Services</a>
+          <a class="nav-link" routerLink="/dashboard/services/services-list" routerLinkActive="active">Services</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false" routerLink="/services">
             Customers
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/services">Individual Customers</a></li>
+            <li><a class="dropdown-item" routerLink="/services-list">Individual Customers</a></li>
             <li><a class="dropdown-item" >Corporate Customers</a></li>
           </ul>
         </li>
@@ -27,22 +27,25 @@
 
     </div>
 
+<div style="margin-right: 65px;">
 
-    <div
-    *ngIf="!(tokenUserModel$ | async)"
-    class="d-flex justify-content-center order-0 order-lg-1"
-  >
-    <a class="btn mx-2 py-2 px-4 rounded-1 bg-transparent" style=" color: #FFF;">Sign Up</a>
-    <a class="btn mx-2 py-2 px-4 rounded-1 shadow" routerLink="/login" style="background-color: #f78200;">Log in</a>
-  </div>
+  <div
+  *ngIf="!(tokenUserModel$ | async)"
+  class="d-flex justify-content-center order-0 order-lg-1"
+>
+  <a class="btn mx-2 py-2 px-4 rounded-1 bg-transparent" style=" color: #FFF;">Sign Up</a>
+  <a class="btn mx-2 py-2 px-4 rounded-1 shadow" routerLink="/login" style="background-color: #f78200;">Log in</a>
+</div>
 
-  <div *ngIf="tokenUserModel$ | async" class="d-block dropdown">      <!-- async ile gelen Observable'a abone oluyor ve ulaşıyor.-->
-    <button type="button" class="btn dropdown-toggle" style="background-color:#f78200; color: #FFF;" data-bs-toggle="dropdown" aria-expanded="false">
-      {{ (tokenUserModel$ | async)?.userName }}
-    </button>
-    <ul class="dropdown-menu">
-      <li><button  class="dropdown-item" (click)="logout()">Log out</button></li>
-    </ul>
-  </div>
+<div *ngIf="tokenUserModel$ | async" class="d-block dropdown">      <!-- async ile gelen Observable'a abone oluyor ve ulaşıyor.-->
+  <button type="button" class="btn dropdown-toggle" style="background-color:#f78200; color: #FFF;" data-bs-toggle="dropdown" aria-expanded="false">
+    {{ (tokenUserModel$ | async)?.userName }}
+  </button>
+  <ul class="dropdown-menu">
+    <li><button  class="dropdown-item" (click)="logout()">Log out</button></li>
+  </ul>
+</div>
+</div>
+
   </div>
 </nav>

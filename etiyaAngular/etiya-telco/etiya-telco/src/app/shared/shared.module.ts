@@ -17,6 +17,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { DashboardHomeComponent } from './pages/dashboard-home/dashboard-home.component';
 
 import {SidebarModule} from 'primeng/sidebar';
+import { SlideMenuModule } from 'primeng/slidemenu';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {SidebarModule} from 'primeng/sidebar';
   imports: [
     CommonModule, ProgressSpinnerModule, TableModule, SkeletonModule, RouterModule, SidebarModule,ButtonModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SlideMenuModule
   ],
   exports : [
     NavbarComponent,

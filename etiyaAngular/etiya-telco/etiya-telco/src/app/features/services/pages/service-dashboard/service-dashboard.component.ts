@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../../services/services.service';
 
 @Component({
-  //selector: 'app-service-dashboard',
+  selector: 'app-service-dashboard',
   templateUrl: './service-dashboard.component.html',
   styleUrls: ['./service-dashboard.component.css']
 })
@@ -29,5 +29,11 @@ export class ServiceDashboardComponent implements OnInit {
     (error) => {
       this.fetchStatus = 'error';
     })
+  }
+
+  getEventValue($event:any):string  {
+    console.log($event) ;
+    return $event;
+
   }
 }

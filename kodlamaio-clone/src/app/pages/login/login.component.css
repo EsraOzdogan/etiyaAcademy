@@ -1,0 +1,99 @@
+.login{
+  margin: 25px 0px 0px 35%;
+
+    /* display: flex;
+    align-items: flex-end; */
+}
+
+
+.card {
+  border-radius: 10px;
+  font-size: 1.8rem;
+  box-shadow: 1px 1px 1px 0px #efeff5;
+  border: 1px solid  #e3e3e3;
+  margin-bottom: 50px;
+  width: 150%;
+  padding: 25px 25px 25px 25px ;
+  background-color: #fff;
+}
+
+
+.card .card-body .card-title {
+  font-weight: 600;
+  color: #342E2E;
+  padding: 16px 16px 4px 16px;
+  text-align: center;
+  font-size: 28px;
+  line-height: 2.703rem;
+  margin-bottom: 25px;
+
+}
+
+.card .card-body .card-description {
+  color: #746b6b;
+    padding: 5px 16px;
+    font-weight: 200;
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1.1;
+    max-height: 45px;
+}
+
+.card-body .card-input {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.form-label{
+  margin-bottom: 3px;
+  color: #6b6d7c;
+  font-family: inherit;
+}
+.form-input{
+  border-radius: 2px;
+  background-color: #fff;
+  height: 36px;
+  border-radius: 5px;
+  border: 1px solid #e2e2e9;
+  caret-color: black
+}
+.form-input:focus{
+  border: 1.5px solid #6b6d7c;
+}
+
+.form-input:hover{
+  border: 0.5px solid #9598a8;
+}
+
+.form-input-password{
+  border-radius: 2px;
+  background-color: #fff;
+  height: 36px;
+  border-radius: 5px;
+  border: 1px solid #e2e2e9;
+  caret-color: black;
+  width: 100%;
+}
+
+.card-body .card-link .card-img-item {
+  display: flex;
+  align-items: center;
+}
+
+.icon{
+  color: #212338;
+     margin-left: -25px;
+    margin-top: 12px;
+    position: absolute;
+    z-index: 2;
+    opacity: .4;
+    margin-right: 5px;
+}
+.card-link .card-link-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  margin-right: 5px;
+}

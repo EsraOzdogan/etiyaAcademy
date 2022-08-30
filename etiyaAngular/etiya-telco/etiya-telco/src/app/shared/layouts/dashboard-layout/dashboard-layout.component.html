@@ -1,9 +1,15 @@
 <div class="row min-vh-100">
-  <div class="col-2 bg-dark text-light">
-    <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+  <div class="col-2  text-light">
+    <!-- <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
       <h1 style="font-weight:normal">Left Sidebar</h1>
   </p-sidebar>
-  <p-button type="text" (click)="visibleSidebar1 = true" icon="pi pi-plus" label="Show"></p-button>
+  <p-button type="text" (click)="visibleSidebar1 = true" icon="pi pi-plus" label="Show"></p-button> -->
+
+
+
+  <p-slideMenu [model]="items" [viewportHeight]="500" [style]="'background-color: #242441'" ></p-slideMenu>
+
+
 
   </div>
   <div class="col mt-5 p-5">

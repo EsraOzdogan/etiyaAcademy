@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -20,7 +20,8 @@ export class ServiceFormComponent implements OnInit {
   items!: MenuItem[];
 
   home!: MenuItem;
-
+  @Input() productDialog!: boolean
+  submitted! : boolean;
 
   constructor(private formBuilder:FormBuilder,private activatedRoute:ActivatedRoute,
     private servicesService:ServicesService,private router:Router,private messageService:MessageService) { }
@@ -32,7 +33,7 @@ export class ServiceFormComponent implements OnInit {
     });
 
     this.items = [
-      {label: 'Services', routerLink:"/services"},
+      {label: 'Services', routerLink:"/services-list"},
       {label: 'Edit'}
   ];
 
@@ -55,6 +56,7 @@ export class ServiceFormComponent implements OnInit {
 
 
   save(){
+    this.submitted = true;
     if(this.service) this.update();
     else{
       this.add();
@@ -72,7 +74,7 @@ export class ServiceFormComponent implements OnInit {
     this.servicesService.add(service).subscribe(() =>{
       setTimeout(() => {
       this.messageService.add({severity:'success', summary:'Add', detail:'Service has been added.'});
-        this.router.navigateByUrl("/services");
+        this.router.navigateByUrl("/services-list");
       }, 4000);
     })
   }
@@ -91,6 +93,12 @@ export class ServiceFormComponent implements OnInit {
         }, 4000);
       });
   }
+
+
+  hideDialog() {
+    this.productDialog = false;
+    this.submitted = false;
+}
 
 
 

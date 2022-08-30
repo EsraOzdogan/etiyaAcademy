@@ -79,4 +79,7 @@ export class AuthService {
     this.store.dispatch(removeTokenUserModel());
   }
 
+  getUsers():Observable<UserForLoginModel[]>{
+    return this.httpClient.get<UserForLoginModel[]>(`${environment.apiUrl}/users`)
+  }
 }

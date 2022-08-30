@@ -1,3 +1,6 @@
+import { InputTextModule } from 'primeng/inputtext';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './../../shared/shared.module';
 import { ServiceFormComponent } from './components/service-form/service-form.component';
 import { ServiceListComponent } from './components/service-list/service-list.component';
@@ -16,6 +19,7 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
 
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,15 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+
+
+    BrowserModule,
+    BrowserAnimationsModule,
+    ConfirmDialogModule,
+    MessagesModule,
+    InputTextModule,
+    DialogModule
   ],
   exports : [
     ServiceDashboardComponent

@@ -6,10 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./lesson-card.component.css']
 })
 export class LessonCardComponent implements OnInit {
-  @Input() lesson: any;
+  @Input() lesson:any;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.lesson)
   }
-
 }

@@ -16,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {PasswordModule} from 'primeng/password';
 import { DividerModule } from "primeng/divider";
+import {CheckboxModule} from 'primeng/checkbox';
 
 export function jwtOptionsFactory(storageService: StorageService) {
   return {
@@ -48,7 +49,8 @@ export function jwtOptionsFactory(storageService: StorageService) {
     SharedModule,
     PasswordModule,
     DividerModule,
-    FormsModule
+    FormsModule,
+    CheckboxModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
 })

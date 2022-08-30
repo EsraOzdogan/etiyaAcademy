@@ -1,6 +1,6 @@
 <!-- <etiya-main-layout> -->
   <!-- <app-service-list></app-service-list> -->
-
+<etiya-main-layout>
   <ng-container   *ngIf="fetchStatus=='loaded'">
     <div class="card" >
       <p-toolbar styleClass="p-mb-4">
@@ -8,11 +8,19 @@
           <h3>Services</h3>
         </ng-template>
           <ng-template pTemplate="right">
-            <button pButton pRipple type="button" label="Add" routerLink="/add"  icon="pi pi-plus" class="p-button-raised p-button-warning"></button>
+
+            <!-- <div class="p-d-flex">
+              <span class="p-input-icon-left p-ml-auto">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="dt.filterGlobal(getEventValue($event), 'contains')" placeholder="Search keyword" />
+                    </span>
+            </div> -->
+
+            <button pButton pRipple type="button" label="New" routerLink="/add"  icon="pi pi-plus" class="p-button-raised p-button-warning"></button>
           </ng-template>
       </p-toolbar>
 
-      <app-service-list [fetchStatus]="fetchStatus" [serviceList]="serviceList"></app-service-list>
+      <app-service-list [fetchStatus]="fetchStatus" [serviceList]="serviceList" (onBtnClick)="getEventValue($event)"></app-service-list>
     </div>
   </ng-container>
 
@@ -29,6 +37,8 @@
       </div>
     </div>
 </ng-container>
+
+</etiya-main-layout>
 
 
 
